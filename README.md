@@ -1,4 +1,4 @@
-# ldpc
+# LDPC Encoder
 
 
 ## Motivation
