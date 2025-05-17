@@ -9,7 +9,9 @@ are not useful as they need longer message lengths. The navigation standards suc
 
 ## Project Description
 
-Use [Communications Toolbox™](https://www.mathworks.com/help/comm/) to implement the non-binary LDPC encoder and decoder functions and benchmark the bit error rate (BER) performance in Additive White Gaussian Noise (AWGN) channel.
+This project is guided by the link (https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/tree/main/projects/Improve%20the%20Accuracy%20of%20Satellite%20Navigation%20Systems)  
+Since difficulties, So at this point, I only achieved the coding part by using [Communications Toolbox™](https://www.mathworks.com/help/comm/)  
+To implement the non-binary LDPC encoder functions and benchmark the bit error rate (BER) performance in Additive White Gaussian Noise (AWGN) channel.
 Implement an LDPC decoder to process the soft Log Likelihood Ratios (LLR) values at the receiver using iterative algorithms. 
 The basic navigation frame used in Beidou is as shown in the figure below.
 
@@ -25,40 +27,28 @@ Each frame before error correction encoding has a length of 288 bits, containing
 
 At the receiver, assuming the perfect time and frequency synchronization, demodulated symbols are passed through 64-ary LDPC decoder using extended min-sum algorithm [1], implemented in GF(2<sup>6</sup>) domain to extract the 48 codewords (288 bits) of Navigation message. 
 
-Suggested steps:
--	Implement 64-ary LDPC encoder in MATLAB following the steps given in Annex [1] using GF arithmetic from Communications Toolbox.
+Design steps:
+-	Implement 64-ary LDPC encoder in MATLAB following the steps given in Annex [1]
+-	using GF arithmetic from Communications Matlab Toolbox.
 -	Test this encoder data using the reference values provided in [1].
--	Implement a corresponding 64-ary LDPC decoder following the steps given in Annex [1].
+-	Form the navigation message as shown the following chapters and pass it through 64-array LDPC encoder
+-	Perform BPSK modulation using BPSK modulator on the encoded data and pass through Additive White Gaussian Noise (AWGN)  channel.
+![image](https://github.com/user-attachments/assets/3cf05d35-cb92-426e-923a-6f3335dd5ab6)
+
 -	Form the navigation message as shown in Figure 1 and pass it through 64-array LDPC encoder and perform BPSK modulation using [BPSK modulator](https://in.mathworks.com/help/comm/ref/comm.bpskmodulator-system-object.html) on the encoded data and pass through AWGN channel.  
 -	Run a bit error rate (BER) simulation to benchmark the performance with standard provided results by replacing LDPC encoder and decoder functions in the [Communications Toolbox example](https://www.mathworks.com/help/comm/gs/accelerating-ber-simulations-using-the-parallel-computing-toolbox.html) with 64-ary LDPC encoder and decoder. 
 
-Advanced project work:
-
-Profile the MATLAB code using [MATLAB profiler](https://in.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html) to improve the speed of execution by comparing it with that of binary LDPC code from Communications Toolbox.
-Implement M-ary LDPC encoder and decoder to support other message lengths defined in Beidou standard.
 
 
+
+## Annex
+- [1] [BeiDou Navigation Satellite System Signal In Space Interface Control, Aug 2017 (Sections 6.2.2.2, 6.2.2.3, 6.2.2.4, and Annex)](http://en.beidou.gov.cn/SYSTEMS/ICD/201806/P020180608522414961797.pdf)
+- [2] Lin, S., & Costello, D. J. (1983). Error control coding: Fundamentals and applications. Englewood Cliffs, N.J: Prentice-Hall.
 
 ## Background Material
-
 - Binary LDPC [encoder](https://www.mathworks.com/help/comm/ref/comm.ldpcencoder-system-object.html) and [decoder](https://www.mathworks.com/help/comm/ref/comm.ldpcdecoder-system-object.html) in [Communications Toolbox](https://www.mathworks.com/help/comm/)
 - [Performance evaluation of binary LDPC coder in AWGN channel in Communications Toolbox](https://www.mathworks.com/help/comm/ref/comm.ldpcdecoder-system-object.html#mw_201f2d2d-1059-4774-8e70-4f1a9e0a7cdf)
 - [Accelerating BER Simulations Using the Parallel Computing Toolbox](https://www.mathworks.com/help/comm/gs/accelerating-ber-simulations-using-the-parallel-computing-toolbox.html)
 - [Profile Your Code to Improve Performance](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html)
-
-Suggested readings:
-
-[1] [BeiDou Navigation Satellite System Signal In Space Interface Control, Aug 2017 (Sections 6.2.2.2, 6.2.2.3, 6.2.2.4, and Annex)](http://en.beidou.gov.cn/SYSTEMS/ICD/201806/P020180608522414961797.pdf)
-
-[2] Lin, S., & Costello, D. J. (1983). Error control coding: Fundamentals and applications. Englewood Cliffs, N.J: Prentice-Hall. 
-
-
-## Impact
-
-Accelerate the development of modern satellite navigation receivers.
-
-[Dedicated discussion forum](https://github.com/mathworks/MathWorks-Excellence-in-Innovation/discussions/23) to ask/answer questions, comment, or share your ideas for solutions for this project.
-## Proposed By
-[nkchavali](https://github.com/nkchavali)
 
 
