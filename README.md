@@ -60,6 +60,37 @@ Each frame before error correction encoding has a length of 288 bits, containing
 | ***Figure4**: Design Procedure* |
 
 
+## Generator Matrix
+
+- ✅ **Parity-check matrix** `H = [H₁, H₂]` of the non-binary LDPC(n, k) code.  
+  The codeword `C` is computed by `C = m·G = [m, p]`, where  
+  `p = m·(H₂⁻¹·H₁)ᵗ` is the check sequence.
+
+---
+
+### Step 1:
+The matrix **H** of size `(n − k) × n` is expressed as:  
+`H = [H₁, H₂]`, where:  
+- the size of `H₁` is `(n − k) × k`  
+- the size of `H₂` is `(n − k) × (n − k)`
+
+---
+
+### Step 2:
+Convert the matrix **H** into the **systematic form**,  
+i.e., multiply **H** with `H₂⁻¹` from the left to generate a parity-check matrix:  
+
+`H' = [H₂⁻¹·H₁, Iₙ₋ₖ]`  
+where `Iₙ₋ₖ` is the identity matrix of size `(n − k) × (n − k)`
+
+---
+
+### Step 3:
+The **generator matrix** is computed as:  
+
+`G = [Iₖ, (H₂⁻¹·H₁)ᵗ]`  
+
+where `Iₖ` is the identity matrix of size `k × k`.
 
  
 
