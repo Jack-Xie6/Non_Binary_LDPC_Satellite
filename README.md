@@ -9,7 +9,7 @@ The LDPC codes are capacity approaching codes and now supersede Turbo codes. Sat
 ## Project Description
 
 This project is guided by the link (https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/tree/main/projects/Improve%20the%20Accuracy%20of%20Satellite%20Navigation%20Systems))  
-Since difficulties, So at this point, I only achieved the coding part by using [Communications Toolbox™](https://www.mathworks.com/help/comm/)  
+Since difficulties, So at this point, I only achieved the coding part by using [Communications Toolbox™](https://www.mathworks.com/help/comm/). 
 To implement the non-binary LDPC encoder functions and benchmark the bit error rate (BER) performance in Additive White Gaussian Noise (AWGN) channel.
 Implement an LDPC decoder to process the soft Log Likelihood Ratios (LLR) values at the receiver using iterative algorithms. 
 The basic navigation frame used in Beidou is as shown in the figure below.
@@ -23,6 +23,14 @@ Each frame before error correction encoding has a length of 288 bits, containing
 | ![transmittedMessage](transmittedMessage.png) | 
 |:--:| 
 | ***Figure2**: Transmitted message symbols* |
+
+
+| ![image](https://github.com/user-attachments/assets/50cb7e98-28ec-4d48-bbfe-5600960c1f49)| 
+|:--:| 
+| ***Figure3**: Transmitted message symbols* |
+
+
+
 
 At the receiver, assuming the perfect time and frequency synchronization, demodulated symbols are passed through 64-ary LDPC decoder using extended min-sum algorithm [1], implemented in GF(2<sup>6</sup>) domain to extract the 48 codewords (288 bits) of Navigation message. 
 
