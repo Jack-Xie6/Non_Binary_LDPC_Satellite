@@ -1,6 +1,5 @@
 # LDPC Encoder
 
-
 ## Motivation
 
 In order to improve the accuracy of satellite navigation messages received at low Signal to Noise Ratio (SNR), non-binary low density parity check (LDPC) codes have been proposed in global navigation satellite systems.
@@ -35,8 +34,6 @@ Each frame before error correction encoding has a length of 288 bits, containing
 |:--:| 
 | ***Figure3**: Design Procedure* |
 
-
-
 ### Generator Matrix
 
 Ｈ<sub>100,200,index</sub>=[  
@@ -59,8 +56,6 @@ Each frame before error correction encoding has a length of 288 bits, containing
 |:--:| 
 | ***Figure4**: Design Procedure* |
 
-
-### Generator Matrix
 
 - ✅ **Parity-check matrix** `H = [H₁, H₂]` of the non-binary LDPC(n, k) code.  
   The codeword `C` is computed by `C = m·G = [m, p]`, where  
@@ -90,12 +85,7 @@ The **generator matrix** is computed as:
 
 `G = [Iₖ, (H₂⁻¹·H₁)ᵗ]`  
 
-where `Iₖ` is an unit matrix of size `k × k`.
-
- 
-
-
-At the receiver, assuming the perfect time and frequency synchronization, demodulated symbols are passed through 64-ary LDPC decoder using extended min-sum algorithm [1], implemented in GF(2<sup>6</sup>) domain to extract the 48 codewords (288 bits) of Navigation message. 
+where `Iₖ` is an unit matrix of size `k × k`. 
 
 ## Design steps:
 -	Implement 64-ary LDPC encoder in MATLAB following the steps given in Annex [1]
@@ -108,9 +98,6 @@ At the receiver, assuming the perfect time and frequency synchronization, demodu
 -	Form the navigation message as shown in Figure 1 and pass it through 64-array LDPC encoder and perform BPSK modulation using [BPSK modulator](https://in.mathworks.com/help/comm/ref/comm.bpskmodulator-system-object.html) on the encoded data and pass through AWGN channel.  
 -	Run a bit error rate (BER) simulation to benchmark the performance with standard provided results by replacing LDPC encoder and decoder functions in the [Communications Toolbox example](https://www.mathworks.com/help/comm/gs/accelerating-ber-simulations-using-the-parallel-computing-toolbox.html) with 64-ary LDPC encoder and decoder. 
 
-
-
-
 ## Annex
 - [1] [BeiDou Navigation Satellite System Signal In Space Interface Control, Aug 2017 (Sections 6.2.2.2, 6.2.2.3, 6.2.2.4, and Annex)](http://en.beidou.gov.cn/SYSTEMS/ICD/201806/P020180608522414961797.pdf)
 - [2] Lin, S., & Costello, D. J. (1983). Error control coding: Fundamentals and applications. Englewood Cliffs, N.J: Prentice-Hall.
@@ -120,5 +107,3 @@ At the receiver, assuming the perfect time and frequency synchronization, demodu
 - [Performance evaluation of binary LDPC coder in AWGN channel in Communications Toolbox](https://www.mathworks.com/help/comm/ref/comm.ldpcdecoder-system-object.html#mw_201f2d2d-1059-4774-8e70-4f1a9e0a7cdf)
 - [Accelerating BER Simulations Using the Parallel Computing Toolbox](https://www.mathworks.com/help/comm/gs/accelerating-ber-simulations-using-the-parallel-computing-toolbox.html)
 - [Profile Your Code to Improve Performance](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html)
-
-
