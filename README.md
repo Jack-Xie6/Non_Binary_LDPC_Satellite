@@ -14,20 +14,55 @@ To implement the non-binary LDPC encoder functions and benchmark the bit error r
 Implement an LDPC decoder to process the soft Log Likelihood Ratios (LLR) values at the receiver using iterative algorithms. 
 The basic navigation frame used in Beidou is as shown in the figure below.
 
-| ![Slide1](https://github.com/user-attachments/assets/eafb0385-728c-4b43-9087-a6c01958788f) | 
-|:--:| 
-| ***Figure1**: Navigation Message* |
+### B-CNAV1 Navigation Message
 
-Each frame before error correction encoding has a length of 288 bits, containing PRN (6 bits), Message Type (Mestype, 6 bits), Seconds Of Week (SOW, 18 bits), message data (234 bits), and CRC check bits (24 bits). 64-ary LDPC(96, 48) encoding is applied on the navigation message and the resultant encoded frame length becomes 576 bits or 96 codewords (6-bit). The LDPC check matrix as described in [1], is a sparse matrix Ｈ<sub>48,96</sub> of 48 rows and 96 columns defined in GF(2<sup>6</sup>) domain with the primitive polynomial being p(x) = 1 + x + x<sup>6</sup>. The encoded data is BPSK modulated and 24 preamble symbols are prepended to form the transmitted frame.
-
-| ![transmittedMessage](transmittedMessage.png) | 
-|:--:| 
-| ***Figure2**: Transmitted message symbols* |
-
+B1C Signal (1575.42 MHz) is designed for global open service in the BeiDou Navigation Satellite System (BDS-3). Intended for general civilian navigation and positioning.  
+Subframe 1 use BCH encoding. Subframe 2 and 3 use 64-ary LDPC(200,100) Encoding, is a Low-Density Parity-Check code defined over the Galois Field GF(2⁶) = GF(64).
 
 | ![image](https://github.com/user-attachments/assets/50cb7e98-28ec-4d48-bbfe-5600960c1f49)| 
 |:--:| 
-| ***Figure3**: Transmitted message symbols* |
+| ***Figure1**: Transmitted message symbols* |
+
+| ![Slide1](https://github.com/user-attachments/assets/eafb0385-728c-4b43-9087-a6c01958788f) | 
+|:--:| 
+| ***Figure2**: Navigation Message* |
+
+Each frame before error correction encoding has a length of 288 bits, containing PRN (6 bits), Message Type (Mestype, 6 bits), Seconds Of Week (SOW, 18 bits), message data (234 bits), and CRC check bits (24 bits). 64-ary LDPC(96, 48) encoding is applied on the navigation message and the resultant encoded frame length becomes 576 bits or 96 codewords (6-bit). The LDPC check matrix as described in [1], is a sparse matrix Ｈ<sub>48,96</sub> of 48 rows and 96 columns defined in GF(2<sup>6</sup>) domain with the primitive polynomial being p(x) = 1 + x + x<sup>6</sup>. The encoded data is BPSK modulated and 24 preamble symbols are prepended to form the transmitted frame.
+
+### Design Procedure
+
+| ![transmittedMessage](transmittedMessage.png) | 
+|:--:| 
+| ***Figure3**: Design Procedure* |
+
+
+### Generator Matrix
+
+Ｈ<sub>100,200,index</sub>=[  
+11   62   102   150
+4    90   131   177
+   . . . . . . 
+   . . . . . . 
+42   55   134   157
+27   92   110   181
+
+Ｈ<sub>100,200,element</sub>=
+35   13   51   60
+1    44   53   24
+   . . . . . . 
+   . . . . . . 
+44   30   24    1
+53   24    1   44
+
+| ![image](https://github.com/user-attachments/assets/6888da6b-5830-4f99-9727-2d21497d4922) | 
+|:--:| 
+| ***Figure4**: Design Procedure* |
+
+
+
+ 
+
+
 
 
 
