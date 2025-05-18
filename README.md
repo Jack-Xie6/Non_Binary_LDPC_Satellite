@@ -23,7 +23,7 @@ Subframe 1 use BCH encoding. Subframe 2 and 3 use 64-ary LDPC(200,100) Encoding,
 |:--:| 
 | ***Figure1**: Transmitted message symbols* |
 
-| ![Slide1](https://github.com/user-attachments/assets/eafb0385-728c-4b43-9087-a6c01958788f) | 
+| ![image](https://github.com/user-attachments/assets/eafb0385-728c-4b43-9087-a6c01958788f) | 
 |:--:| 
 | ***Figure2**: Navigation Message* |
 
@@ -39,20 +39,20 @@ Each frame before error correction encoding has a length of 288 bits, containing
 ### Generator Matrix
 
 Ｈ<sub>100,200,index</sub>=[  
-11   62   102   150
-4    90   131   177
-   . . . . . . 
-   . . . . . . 
-42   55   134   157
-27   92   110   181
+11   62   102   150  
+4    90   131   177  
+   . . . . . .   
+   . . . . . .   
+42   55   134   157  
+27   92   110   181  
 
-Ｈ<sub>100,200,element</sub>=
-35   13   51   60
-1    44   53   24
-   . . . . . . 
-   . . . . . . 
-44   30   24    1
-53   24    1   44
+Ｈ<sub>100,200,element</sub>=  
+35   13   51   60  
+1    44   53   24  
+   . . . . . .   
+   . . . . . .   
+44   30   24    1  
+53   24    1   44  
 
 | ![image](https://github.com/user-attachments/assets/6888da6b-5830-4f99-9727-2d21497d4922) | 
 |:--:| 
