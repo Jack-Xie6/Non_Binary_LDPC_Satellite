@@ -31,9 +31,10 @@ Each frame before error correction encoding has a length of 288 bits, containing
 
 ### Design Procedure
 
-| ![transmittedMessage](transmittedMessage.png) | 
+| ![image](https://github.com/user-attachments/assets/2d6cd462-bc1e-4327-890a-edb937feb166)| 
 |:--:| 
 | ***Figure3**: Design Procedure* |
+
 
 
 ### Generator Matrix
